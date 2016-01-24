@@ -305,7 +305,7 @@ public class BrainVisionReader {
      * @param epochToRead the epoch which have to be read.
      * @return
      */
-    public final float[] readBinary(int channel, long from, long to) {
+    private float[] readBinary(int channel, long from, long to) {
         try {
             FileChannel inChannel = dataFile.getChannel();
             // Set the start position in the file
@@ -346,7 +346,7 @@ public class BrainVisionReader {
         return data;
     }
 
-    public final float[][] readAscii(File dataFileLocation) {
+    private float[][] readAscii(File dataFileLocation) {
         float[][] out = null;
         try (BufferedReader in = new BufferedReader(new FileReader(dataFileLocation))) {
             out = in.lines()
